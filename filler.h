@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   filler.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/08 22:39:38 by asarandi          #+#    #+#             */
-/*   Updated: 2017/12/10 18:38:59 by asarandi         ###   ########.fr       */
+/*   Created: 2017/12/10 18:38:26 by asarandi          #+#    #+#             */
+/*   Updated: 2017/12/10 18:38:44 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#ifndef FILLER_H
+# define FILLER_H
 
-int	main(int ac, char **av)
-{
-	if (ac != 2)
-		return (0);
-	char *str = av[1];
-	char c = str[0];
-	return (c);
-}
+#endif
