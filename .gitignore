@@ -1,4 +1,6 @@
 # Prerequisites
+filler.trace
+*.tmp
 *.filler
 *.d
 
