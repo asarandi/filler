@@ -6,7 +6,7 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 18:38:26 by asarandi          #+#    #+#             */
-/*   Updated: 2017/12/11 20:14:20 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/12/12 00:42:45 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(char *str);
 int					ft_isdigit(int c);
 char				*ft_strcpy(char *dst, const char *src);
-
+void				ft_putnbr(int n);
 
 #endif

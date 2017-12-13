@@ -1,0 +1,5 @@
+12-12-2017 ... able to place pieces at first location available;
+
+pieces need to be trimmed of all fluff for more eficient placing;
+implement bsq strategy,
+optimize code .. (remove ft_strlen's if possible)
