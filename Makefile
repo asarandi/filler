@@ -1,7 +1,6 @@
-
 NAME	= asarandi.filler
 CC		= gcc
-FLAGS	= -Wall -Werror -Wextra -O3
+FLAGS	= -Wall -Werror -Wextra -g
 SRC		= $(wildcard *.c)
 OBJ		= $(SRC:%.c=%.o)
 

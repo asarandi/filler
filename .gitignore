@@ -1,5 +1,6 @@
 # Prerequisites
 filler.trace
+*.pdf
 *.tmp
 *.filler
 *.d

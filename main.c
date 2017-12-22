@@ -6,7 +6,7 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 22:39:38 by asarandi          #+#    #+#             */
-/*   Updated: 2017/12/12 18:15:58 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/12/22 04:22:02 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int		g_piece_height;
 int		g_result_x;
 int		g_result_y;
 char	*g_slice;
+char	*g_mini;
+int		g_mini_height;
+int		g_mini_width;
+int		g_piece_top_extra;
+int		g_piece_side_extra;
 
 int	validate_input(char **input, char *pattern)
 {
@@ -166,23 +171,6 @@ int	get_piece()
 	return (1);
 }
 
-int	get_inputs()
-{
-	if (get_plateau() != 1)
-		return (0);
-	if (get_piece() != 1)
-	{
-		free(g_plateau);
-		return (0);
-	}
-	if ((g_slice = ft_memalloc(g_piece_height * g_piece_width + 1)) == NULL)
-	{
-		free(g_plateau);
-		free(g_piece);
-		return (0);
-	}
-	return (1);
-}
 
 
 /*
@@ -264,6 +252,91 @@ int	count_cells(char *board, char match)
 	return (result);
 }
 
+int	trim_piece_top(int start)
+{
+	int	i;
+	char	*piece;
+
+	i = 0;
+	piece = &g_piece[start * g_piece_width];
+	while (i < g_piece_width)
+	{
+		if (piece[i] != '.')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	trim_piece_side(int start)
+{
+	int	i;
+	int	j;
+//	char *piece;
+
+	i = 0;
+	j = start;
+//	piece = &g_piece[start];
+	while (i < g_piece_height)
+	{
+		if (g_piece[j] != '.')
+			return (0);
+		j += g_piece_width;
+		i += 1;
+	}
+	return (1);
+}
+
+int	piece_minify()
+{
+	int	i;
+	int	j;
+	int k;
+
+	i = g_piece_top_extra;
+	k = 0;
+	while (i < g_piece_height)
+	{
+		j = g_piece_side_extra;
+		while (j < g_piece_width)
+		{
+			g_mini[k] = g_piece[i * g_piece_width + j];
+			j++;
+			k++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+
+
+
+int	trim_piece()
+{
+	int	i;
+
+	i = 0;
+	while ((i < g_piece_height) && (trim_piece_top(i)))
+		i++;
+	g_piece_top_extra = i;
+	i = 0;
+	while ((i < g_piece_width) && (trim_piece_side(i)))
+		i++;
+	g_piece_side_extra = i;
+	if ((g_mini = ft_memalloc(g_piece_width * g_piece_height + 1)) == NULL)
+		return (0);
+	g_mini_height = (g_piece_height - g_piece_top_extra);
+	g_mini_width = (g_piece_width - g_piece_side_extra);
+	return (piece_minify());
+}
+
+
+
+
+
+
+
 int	plateau_slice(char *plateau)
 {
 	int	i;
@@ -271,8 +344,8 @@ int	plateau_slice(char *plateau)
 	int	k;
 
 	i = 0;
-	k = g_piece_width;
-	while (i < g_piece_height)
+	k = g_mini_width;
+	while (i < g_mini_height)
 	{
 		j = 0;
 		while ((j < k) && (plateau[(i * g_plateau_width) + j]))
@@ -298,12 +371,24 @@ int	find_position()
 	{
 		if (plateau_slice(&g_plateau[i]) != 1)
 			return (0);
-		if (valid_placement(g_slice, g_piece) == 1)
+		if (valid_placement(g_slice, g_mini) == 1)
 		{
-			g_result_x = i / g_plateau_width;
-			g_result_y = i % g_plateau_width;
-			if (g_result_y + g_piece_width <= g_plateau_width)
+			g_result_x = (i / g_plateau_width) - g_piece_top_extra;
+			g_result_y = (i % g_plateau_width) - g_piece_side_extra;
+			if (g_result_y + g_mini_width <= g_plateau_width)
+			{
+
+				if (g_result_y + g_piece_width > g_plateau_width)
+				{
+					g_result_y = g_plateau_width - (g_result_y + g_piece_width);
+					g_result_x += 1;
+				   	
+				}
+
+
+
 				return (1);
+			}
 		}
 		i++;
 	}
@@ -316,6 +401,31 @@ void	write_result()
 	ft_putstr(" ");
 	ft_putnbr(g_result_y);
 	ft_putstr("\n");
+}
+
+int	get_inputs()
+{
+	if (get_plateau() != 1)
+		return (0);
+	if (get_piece() != 1)
+	{
+		free(g_plateau);
+		return (0);
+	}
+	if (trim_piece() != 1)
+	{
+		free(g_plateau);
+		free(g_piece);
+		return (0);
+	}
+	if ((g_slice = ft_memalloc(g_mini_height * g_mini_width + 1)) == NULL)
+	{
+		free(g_plateau);
+		free(g_piece);
+		free(g_mini);
+		return (0);
+	}
+	return (1);
 }
 
 int	main()
@@ -333,10 +443,15 @@ int	main()
 			write(1, "-1 -1\n", 6);
 			return (0);
 		}
-		write_to_file("alex.plateau", g_plateau, ft_strlen(g_plateau));
+		write_to_file("alex.plateau", g_plateau, ft_strlen(g_plateau));	//
+		write_to_file("alex.plateau", "\n", 1);	//
 		free(g_plateau);
-		write_to_file("alex.piece", g_piece, ft_strlen(g_piece));
+		write_to_file("alex.piece", g_piece, ft_strlen(g_piece));	//
+		write_to_file("alex.piece", "\n", 1);	//
 		free(g_piece);
+		write_to_file("alex.g_mini", g_piece, ft_strlen(g_piece));	//
+		write_to_file("alex.g_mini", "\n", 1);	//
+		free(g_mini);
 		free(g_slice);
 	}
 	return (0);
