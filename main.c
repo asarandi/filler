@@ -6,7 +6,7 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 22:39:38 by asarandi          #+#    #+#             */
-/*   Updated: 2017/12/22 04:22:02 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/12/22 21:22:47 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ char	*g_mini;
 int		g_mini_height;
 int		g_mini_width;
 int		g_piece_top_extra;
-int		g_piece_side_extra;
+int		g_piece_left_extra;
+int		g_last_position;
+int		g_mini_bottom;
+int		g_mini_right;
 
 int	validate_input(char **input, char *pattern)
 {
-	if (get_next_line(0, input) != 1)
+	if (get_next_line(0, input) == -1)
 		return (0);
 	if (ft_strnequ(*input, pattern, ft_strlen(pattern)) != 1)
 	{
@@ -93,7 +96,7 @@ int	plateau_read()
 	i = 0;
 	while (i < g_plateau_height)
 	{
-		if (get_next_line(0, &data) != 1)
+		if (get_next_line(0, &data) == -1)
 			return (0);
 		j = 0;
 		while ((data[j]) && (ft_isdigit(data[j])))
@@ -117,7 +120,7 @@ int	piece_read()
 	i = 0;
 	while (i < g_piece_height)
 	{
-		if (get_next_line(0, &data) != 1)
+		if (get_next_line(0, &data) == -1)
 			return (0);
 		ft_strcpy(&g_piece[i * g_piece_width], data);
 		free(data);
@@ -143,11 +146,11 @@ int	get_plateau()
 	r = plateau_read();
 	if (r == -1)
 		return (0);
-	else if (r == 0)
-	{
-		free(g_plateau);
-		return (0);
-	}
+//	else if (r == 0)
+//	{
+//		free(g_plateau);
+//		return (0);
+//	}
 	return (1);
 }
 
@@ -163,11 +166,11 @@ int	get_piece()
 	r = piece_read();
 	if (r == -1)
 		return (0);
-	else if (r == 0)
-	{
-		free(g_piece);
-		return (0);
-	}
+//	else if (r == 0)
+//	{
+//		free(g_piece);
+//		return (0);
+//	}
 	return (1);
 }
 
@@ -219,7 +222,7 @@ int valid_placement(char *board, char *piece)
 	int collisions;
 
 	collisions = 0;
-	len = g_piece_height * g_piece_width;//ft_strlen(piece);
+	len = g_mini_height * g_mini_width;//ft_strlen(piece);
 	i = 0;
 	while (i < len)
 	{
@@ -268,7 +271,7 @@ int	trim_piece_top(int start)
 	return (1);
 }
 
-int	trim_piece_side(int start)
+int	trim_piece_left(int start)
 {
 	int	i;
 	int	j;
@@ -287,6 +290,46 @@ int	trim_piece_side(int start)
 	return (1);
 }
 
+
+
+int mini_right_extra()
+{
+	int	i;
+	int	j;
+	int k;
+
+	k = 0;
+	j = g_piece_width - 1;
+	while (k < g_piece_width)
+	{
+		i = 0;
+		while (i < g_piece_height)
+		{
+			if (g_piece[i * g_piece_width + j] != '.')
+				return (k);
+			i++;
+		}
+		k++;
+		j--;
+	}
+	return (k);
+}
+
+int	mini_bottom_extra()
+{
+	int i;
+	int j;
+
+	j = g_piece_width * g_piece_height - 1;
+	i = j;
+	while (g_piece[j] == '.')
+		j--;
+
+	return ((i - j) / g_piece_width);
+}
+
+
+
 int	piece_minify()
 {
 	int	i;
@@ -295,10 +338,10 @@ int	piece_minify()
 
 	i = g_piece_top_extra;
 	k = 0;
-	while (i < g_piece_height)
+	while (i < g_piece_height - g_mini_bottom)
 	{
-		j = g_piece_side_extra;
-		while (j < g_piece_width)
+		j = g_piece_left_extra;
+		while (j < g_piece_width - g_mini_right)
 		{
 			g_mini[k] = g_piece[i * g_piece_width + j];
 			j++;
@@ -310,8 +353,6 @@ int	piece_minify()
 }
 
 
-
-
 int	trim_piece()
 {
 	int	i;
@@ -321,14 +362,17 @@ int	trim_piece()
 		i++;
 	g_piece_top_extra = i;
 	i = 0;
-	while ((i < g_piece_width) && (trim_piece_side(i)))
+	while ((i < g_piece_width) && (trim_piece_left(i)))
 		i++;
-	g_piece_side_extra = i;
+	g_piece_left_extra = i;
 	if ((g_mini = ft_memalloc(g_piece_width * g_piece_height + 1)) == NULL)
 		return (0);
-	g_mini_height = (g_piece_height - g_piece_top_extra);
-	g_mini_width = (g_piece_width - g_piece_side_extra);
-	return (piece_minify());
+	g_mini_bottom = mini_bottom_extra();
+	g_mini_right = mini_right_extra();
+	g_mini_height = (g_piece_height - g_piece_top_extra - g_mini_bottom);
+	g_mini_width = (g_piece_width - g_piece_left_extra - g_mini_right);
+	piece_minify();
+	return (1);
 }
 
 
@@ -363,32 +407,23 @@ int	plateau_slice(char *plateau)
 int	find_position()
 {
 	int	i;
-	int	board_size;
+	int	j;
 
 	i = 0;
-	board_size = g_plateau_height * g_plateau_width;//ft_strlen(g_plateau);
-	while (i < board_size)
+	while (i <= g_plateau_height - g_mini_height)
 	{
-		if (plateau_slice(&g_plateau[i]) != 1)
-			return (0);
-		if (valid_placement(g_slice, g_mini) == 1)
+		j = 0;
+		while (j <= g_plateau_width - g_mini_width)
 		{
-			g_result_x = (i / g_plateau_width) - g_piece_top_extra;
-			g_result_y = (i % g_plateau_width) - g_piece_side_extra;
-			if (g_result_y + g_mini_width <= g_plateau_width)
+			if (plateau_slice(&g_plateau[i * g_plateau_width + j ]) != 1)
+				return (0);
+			if (valid_placement(g_slice, g_mini) == 1)
 			{
-
-				if (g_result_y + g_piece_width > g_plateau_width)
-				{
-					g_result_y = g_plateau_width - (g_result_y + g_piece_width);
-					g_result_x += 1;
-				   	
-				}
-
-
-
+				g_result_x = i - g_piece_top_extra;
+				g_result_y = j - g_piece_left_extra;
 				return (1);
 			}
+			j++;
 		}
 		i++;
 	}
@@ -403,23 +438,44 @@ void	write_result()
 	ft_putstr("\n");
 }
 
+
+
+
+
+
 int	get_inputs()
 {
+	char *pla = "get plateau failed\n";
+	char *pie = "get piece failed\n";
+	char *tri = "trim piece failed\n";
+	char *sli = "slice failed\n";
+
+
+
 	if (get_plateau() != 1)
+	{
+		write_to_file("alex.errors", pla, ft_strlen(pla));
 		return (0);
+	}
 	if (get_piece() != 1)
 	{
 		free(g_plateau);
+		write_to_file("alex.errors", pie, ft_strlen(pie));
+
 		return (0);
 	}
 	if (trim_piece() != 1)
 	{
+		write_to_file("alex.errors", tri, ft_strlen(tri));
+			
 		free(g_plateau);
 		free(g_piece);
 		return (0);
 	}
 	if ((g_slice = ft_memalloc(g_mini_height * g_mini_width + 1)) == NULL)
 	{
+		write_to_file("alex.errors", sli, ft_strlen(sli));
+
 		free(g_plateau);
 		free(g_piece);
 		free(g_mini);
@@ -428,21 +484,38 @@ int	get_inputs()
 	return (1);
 }
 
+
+	typedef	struct	s_pos
+	{
+		int	x;
+		int	y;
+		struct s_pos	*next;
+	}	t_pos;
+
+
 int	main()
 {
+
+	int	flag;
+
+	flag = 0;
+
 	if (get_player_number() != 1)
 		return (1);
+	g_last_position = 0;
 	while (get_inputs() == 1)
 	{
-		// 1-call solver
-		// 2-print solution
+
 		if (find_position() == 1)
 			write_result();
 		else
 		{
+//			g_last_position = 0;
 			write(1, "-1 -1\n", 6);
 			return (0);
 		}
+
+
 		write_to_file("alex.plateau", g_plateau, ft_strlen(g_plateau));	//
 		write_to_file("alex.plateau", "\n", 1);	//
 		free(g_plateau);
@@ -454,5 +527,8 @@ int	main()
 		free(g_mini);
 		free(g_slice);
 	}
+	char *e = strerror(errno);
+	write_to_file("alex.errors", e, ft_strlen(e));
+	write_to_file("alex.errors", "\n", 1);
 	return (0);
 }
