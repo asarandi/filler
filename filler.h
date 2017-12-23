@@ -6,7 +6,7 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 18:38:26 by asarandi          #+#    #+#             */
-/*   Updated: 2017/12/12 00:42:45 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/12/22 23:15:55 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define BUF_SIZE	1024
 
 
-# define BUFF_SIZE 110
+# define BUFF_SIZE 1
 
 typedef	struct		s_gnl
 {
