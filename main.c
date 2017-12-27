@@ -6,7 +6,7 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 22:39:38 by asarandi          #+#    #+#             */
-/*   Updated: 2017/12/26 21:40:12 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/12/27 03:56:51 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int quit()
 
 char	g_player;
 char	*g_plateau;
+char	*g_plateau_copy;
 int		g_plateau_width;
 int		g_plateau_height;
 char	*g_piece;
@@ -42,6 +43,7 @@ typedef	struct	s_pos
 {
 	int	x;
 	int	y;
+	int	adjacent;
 	struct s_pos	*next;
 }	t_pos;
 
@@ -415,7 +417,7 @@ int	plateau_slice(char *plateau)
 }
 
 
-void	save_position(int x, int y)
+void	save_position(int x, int y, int adjacent)
 {
 	t_pos *position;
 	t_pos *new;
@@ -429,6 +431,7 @@ void	save_position(int x, int y)
 	new = ft_memalloc(sizeof(t_pos));
 	new->x = x;
 	new->y = y;
+	new->adjacent = adjacent;
 	new->next = NULL;
 	if (position != NULL)
 		position->next = new;
@@ -453,6 +456,30 @@ void	destroy_positions()
 	g_pos = NULL;
 }
 
+
+
+int	count_adjacent(char *slice)
+{
+	char	c;
+	int		i;
+	int		count;
+
+	c = 'X';
+	if (g_player == '1')
+		c = 'O';
+	i = 0;
+	count = 0;
+	while (slice[i])
+	{
+		if (slice[i] == c)
+			count++;
+		i++;
+	}
+	return (count);
+}
+
+
+
 int	find_position()
 {
 	int	i;
@@ -473,7 +500,7 @@ int	find_position()
 				g_result_x = i - g_piece_top_extra;
 				g_result_y = j - g_piece_left_extra;
 //				return (1);
-				save_position(g_result_x, g_result_y);
+				save_position(g_result_x, g_result_y, count_adjacent(g_slice));
 				count += 1;
 			}
 			j++;
@@ -542,48 +569,92 @@ int	get_inputs()
 int	g_center_x;
 int g_center_y;
 int g_distance;
+int	g_enemy_x;
+int	g_enemy_y;
 
-int		distance_calc(t_pos *position)
+int		distance_calc(t_pos *position, int x, int y)
 {
-	int	x;
-	int y;
+	int	a;
+	int b;
 
-	x = position->x - g_center_x;
-	x *= x;
-	y = position->y - g_center_y;
-	y *= y;
-	return (x + y);
-
+	a = position->x - x;
+	a *= a;
+	b = position->y - y;
+	b *= b;
+	return (a + b);
 }
 
-/*
- * center x = g_plateau_height / 2
- * center y = g_plateau_width  / 2
- */
+void	find_new_enemy()
+{
+	int i;
+	int j;
+	int	w;
+	char c;
+
+	w = g_plateau_width;
+	c = 'X';
+	if (g_player == '2')
+		c = 'O';
+	i = 0;
+	while (i < g_plateau_height)
+	{
+		j = 0;
+		while (j < g_plateau_width)
+		{
+			if (g_plateau[(i * w) + j] != g_plateau_copy[(i * w) + j])
+			{
+				if ((g_plateau_copy[(i * w) + j] == '.') && (g_plateau[(i * w) + j] == c))
+				{
+					g_enemy_x = i;
+					g_enemy_y = j;
+					return ;
+				}
+			}
+			j++;
+		}
+		i++;
+	}
+	return ;
+}
 
 
 void	choose_position()
 {
+
 	int	distance;
 
-	g_center_x = g_plateau_height / 2;
-	g_center_y = g_plateau_width / 2;
-	g_distance = 0;
+	g_enemy_x = g_plateau_height / 2;
+	g_enemy_y = g_plateau_width / 2;
+	g_distance = 1000000;
 
 	t_pos	*position;
 	position = g_pos;
+//	int	adj = 100;
+
+	if (g_plateau_copy == NULL)
+		g_plateau_copy = ft_strdup(g_plateau);
+
+	find_new_enemy();
 	while (position != NULL)
 	{
-		distance = distance_calc(position);
-		if (distance > g_distance)
+		distance = distance_calc(position, g_enemy_x, g_enemy_y);
+//		if (position->adjacent < adj)
+//		{
+//			adj = position->adjacent;
+//			g_distance = distance;
+//			g_result_x = position->x;
+//			g_result_y = position->y;
+//		}
+		if (distance < g_distance)
 		{
 			g_distance = distance;
 			g_result_x = position->x;
 			g_result_y = position->y;
+			
 		}
 		position = position->next;
 	}
-
+	ft_strcpy(g_plateau_copy, g_plateau);
 }
 
 int	main()
@@ -596,6 +667,7 @@ int	main()
 	if (get_player_number() != 1)
 		return (1);
 	g_last_position = 0;
+	g_plateau_copy = NULL;
 	while (get_inputs() == 1)
 	{
 
@@ -626,6 +698,7 @@ int	main()
 		free(g_mini);
 		free(g_slice);
 	}
+	free(g_plateau_copy);
 	char *e = strerror(errno);
 	write_to_file("alex.errors", e, ft_strlen(e));
 	write_to_file("alex.errors", "\n", 1);

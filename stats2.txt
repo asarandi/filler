@@ -1,0 +1,891 @@
+#e1z3r5p18% time ./stats.sh > stats2.txt
+#./stats.sh > stats2.txt  1200.12s user 717.15s system 73% cpu 43:14.44 total
+
+==== player: [abanlin.filler] ========================================
+---- map: [map00] ------------------------------
+map: map00, seed: 0
+asarandi.filler vs abanlin.filler
+result: 129-30
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 2-157
+winner: asarandi.filler
+
+map: map00, seed: 1
+asarandi.filler vs abanlin.filler
+result: 82-72
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 35-121
+winner: asarandi.filler
+
+map: map00, seed: 2
+asarandi.filler vs abanlin.filler
+result: 99-64
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 34-140
+winner: asarandi.filler
+
+map: map00, seed: 3
+asarandi.filler vs abanlin.filler
+result: 176-1
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 56-121
+winner: asarandi.filler
+
+map: map00, seed: 4
+asarandi.filler vs abanlin.filler
+result: 92-63
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 42-128
+winner: asarandi.filler
+
+map: map00, seed: 5
+asarandi.filler vs abanlin.filler
+result: 114-62
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 47-129
+winner: asarandi.filler
+
+---- map: [map01] ------------------------------
+map: map01, seed: 0
+asarandi.filler vs abanlin.filler
+result: 262-77
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 40-288
+winner: asarandi.filler
+
+map: map01, seed: 1
+asarandi.filler vs abanlin.filler
+result: 266-92
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 47-311
+winner: asarandi.filler
+
+map: map01, seed: 2
+asarandi.filler vs abanlin.filler
+result: 263-76
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 60-288
+winner: asarandi.filler
+
+map: map01, seed: 3
+asarandi.filler vs abanlin.filler
+result: 229-147
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 87-294
+winner: asarandi.filler
+
+map: map01, seed: 4
+asarandi.filler vs abanlin.filler
+result: 242-108
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 2-348
+winner: asarandi.filler
+
+map: map01, seed: 5
+asarandi.filler vs abanlin.filler
+result: 254-103
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 37-326
+winner: asarandi.filler
+
+---- map: [map02] ------------------------------
+map: map02, seed: 0
+asarandi.filler vs abanlin.filler
+result: 1990-24
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 661-1320
+winner: asarandi.filler
+
+map: map02, seed: 1
+asarandi.filler vs abanlin.filler
+result: 2000-8
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 618-1347
+winner: asarandi.filler
+
+map: map02, seed: 2
+asarandi.filler vs abanlin.filler
+result: 1917-91
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 410-1598
+winner: asarandi.filler
+
+map: map02, seed: 3
+asarandi.filler vs abanlin.filler
+result: 1916-121
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 534-1489
+winner: asarandi.filler
+
+map: map02, seed: 4
+asarandi.filler vs abanlin.filler
+result: 1911-110
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 759-1218
+winner: asarandi.filler
+
+map: map02, seed: 5
+asarandi.filler vs abanlin.filler
+result: 1893-109
+winner: asarandi.filler
+abanlin.filler vs asarandi.filler
+result: 485-1507
+winner: asarandi.filler
+
+==== player: [carli.filler] ========================================
+---- map: [map00] ------------------------------
+map: map00, seed: 0
+asarandi.filler vs carli.filler
+result: 145-14
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 116-43
+winner: carli.filler
+
+map: map00, seed: 1
+asarandi.filler vs carli.filler
+result: 133-25
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 89-68
+winner: carli.filler
+
+map: map00, seed: 2
+asarandi.filler vs carli.filler
+result: 128-46
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 109-61
+winner: carli.filler
+
+map: map00, seed: 3
+asarandi.filler vs carli.filler
+result: 137-42
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 134-45
+winner: carli.filler
+
+map: map00, seed: 4
+asarandi.filler vs carli.filler
+result: 147-24
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 108-61
+winner: carli.filler
+
+map: map00, seed: 5
+asarandi.filler vs carli.filler
+result: 157-23
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 116-64
+winner: carli.filler
+
+---- map: [map01] ------------------------------
+map: map01, seed: 0
+asarandi.filler vs carli.filler
+result: 292-45
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 94-241
+winner: asarandi.filler
+
+map: map01, seed: 1
+asarandi.filler vs carli.filler
+result: 290-68
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 143-214
+winner: asarandi.filler
+
+map: map01, seed: 2
+asarandi.filler vs carli.filler
+result: 338-2
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 117-133
+winner: asarandi.filler
+
+map: map01, seed: 3
+asarandi.filler vs carli.filler
+result: 291-90
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 251-110
+winner: carli.filler
+
+map: map01, seed: 4
+asarandi.filler vs carli.filler
+result: 278-72
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 2-351
+winner: asarandi.filler
+
+map: map01, seed: 5
+asarandi.filler vs carli.filler
+result: 314-44
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 145-189
+winner: asarandi.filler
+
+---- map: [map02] ------------------------------
+map: map02, seed: 0
+asarandi.filler vs carli.filler
+result: 2008-24
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 186-1821
+winner: asarandi.filler
+
+map: map02, seed: 1
+asarandi.filler vs carli.filler
+result: 1280-691
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 186-1805
+winner: asarandi.filler
+
+map: map02, seed: 2
+asarandi.filler vs carli.filler
+result: 1279-740
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 309-1699
+winner: asarandi.filler
+
+map: map02, seed: 3
+asarandi.filler vs carli.filler
+result: 942-1002
+winner: carli.filler
+carli.filler vs asarandi.filler
+result: 111-1878
+winner: asarandi.filler
+
+map: map02, seed: 4
+asarandi.filler vs carli.filler
+result: 1378-634
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 112-1883
+winner: asarandi.filler
+
+map: map02, seed: 5
+asarandi.filler vs carli.filler
+result: 1402-604
+winner: asarandi.filler
+carli.filler vs asarandi.filler
+result: 71-1936
+winner: asarandi.filler
+
+==== player: [champely.filler] ========================================
+---- map: [map00] ------------------------------
+map: map00, seed: 0
+asarandi.filler vs champely.filler
+result: 159-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-159
+winner: asarandi.filler
+
+map: map00, seed: 1
+asarandi.filler vs champely.filler
+result: 158-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-158
+winner: asarandi.filler
+
+map: map00, seed: 2
+asarandi.filler vs champely.filler
+result: 174-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-175
+winner: asarandi.filler
+
+map: map00, seed: 3
+asarandi.filler vs champely.filler
+result: 177-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-177
+winner: asarandi.filler
+
+map: map00, seed: 4
+asarandi.filler vs champely.filler
+result: 167-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-169
+winner: asarandi.filler
+
+map: map00, seed: 5
+asarandi.filler vs champely.filler
+result: 176-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-177
+winner: asarandi.filler
+
+---- map: [map01] ------------------------------
+map: map01, seed: 0
+asarandi.filler vs champely.filler
+result: 337-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-337
+winner: asarandi.filler
+
+map: map01, seed: 1
+asarandi.filler vs champely.filler
+result: 358-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-358
+winner: asarandi.filler
+
+map: map01, seed: 2
+asarandi.filler vs champely.filler
+result: 340-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-340
+winner: asarandi.filler
+
+map: map01, seed: 3
+asarandi.filler vs champely.filler
+result: 376-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-377
+winner: asarandi.filler
+
+map: map01, seed: 4
+asarandi.filler vs champely.filler
+result: 358-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-353
+winner: asarandi.filler
+
+map: map01, seed: 5
+asarandi.filler vs champely.filler
+result: 364-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-363
+winner: asarandi.filler
+
+---- map: [map02] ------------------------------
+map: map02, seed: 0
+asarandi.filler vs champely.filler
+result: 2031-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-2040
+winner: asarandi.filler
+
+map: map02, seed: 1
+asarandi.filler vs champely.filler
+result: 2009-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-2006
+winner: asarandi.filler
+
+map: map02, seed: 2
+asarandi.filler vs champely.filler
+result: 2041-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-2048
+winner: asarandi.filler
+
+map: map02, seed: 3
+asarandi.filler vs champely.filler
+result: 2080-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-2066
+winner: asarandi.filler
+
+map: map02, seed: 4
+asarandi.filler vs champely.filler
+result: 2035-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-2035
+winner: asarandi.filler
+
+map: map02, seed: 5
+asarandi.filler vs champely.filler
+result: 2030-0
+winner: asarandi.filler
+champely.filler vs asarandi.filler
+result: 0-2026
+winner: asarandi.filler
+
+==== player: [grati.filler] ========================================
+---- map: [map00] ------------------------------
+map: map00, seed: 0
+asarandi.filler vs grati.filler
+result: 129-30
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 60-107
+winner: asarandi.filler
+
+map: map00, seed: 1
+asarandi.filler vs grati.filler
+result: 113-49
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 45-115
+winner: asarandi.filler
+
+map: map00, seed: 2
+asarandi.filler vs grati.filler
+result: 111-64
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 56-118
+winner: asarandi.filler
+
+map: map00, seed: 3
+asarandi.filler vs grati.filler
+result: 156-23
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 57-122
+winner: asarandi.filler
+
+map: map00, seed: 4
+asarandi.filler vs grati.filler
+result: 147-20
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 54-113
+winner: asarandi.filler
+
+map: map00, seed: 5
+asarandi.filler vs grati.filler
+result: 148-29
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 50-130
+winner: asarandi.filler
+
+---- map: [map01] ------------------------------
+map: map01, seed: 0
+asarandi.filler vs grati.filler
+result: 247-90
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 61-267
+winner: asarandi.filler
+
+map: map01, seed: 1
+asarandi.filler vs grati.filler
+result: 119-169
+winner: grati.filler
+grati.filler vs asarandi.filler
+result: 51-312
+winner: asarandi.filler
+
+map: map01, seed: 2
+asarandi.filler vs grati.filler
+result: 264-76
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 55-285
+winner: asarandi.filler
+
+map: map01, seed: 3
+asarandi.filler vs grati.filler
+result: 319-56
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 52-323
+winner: asarandi.filler
+
+map: map01, seed: 4
+asarandi.filler vs grati.filler
+result: 288-74
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 2-348
+winner: asarandi.filler
+
+map: map01, seed: 5
+asarandi.filler vs grati.filler
+result: 314-44
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 60-303
+winner: asarandi.filler
+
+---- map: [map02] ------------------------------
+map: map02, seed: 0
+asarandi.filler vs grati.filler
+result: 1999-24
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 179-1833
+winner: asarandi.filler
+
+map: map02, seed: 1
+asarandi.filler vs grati.filler
+result: 1874-121
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 613-1369
+winner: asarandi.filler
+
+map: map02, seed: 2
+asarandi.filler vs grati.filler
+result: 1855-147
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 526-1470
+winner: asarandi.filler
+
+map: map02, seed: 3
+asarandi.filler vs grati.filler
+result: 1880-153
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 111-1947
+winner: asarandi.filler
+
+map: map02, seed: 4
+asarandi.filler vs grati.filler
+result: 1830-158
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 227-1802
+winner: asarandi.filler
+
+map: map02, seed: 5
+asarandi.filler vs grati.filler
+result: 1865-134
+winner: asarandi.filler
+grati.filler vs asarandi.filler
+result: 71-1933
+winner: asarandi.filler
+
+==== player: [hcao.filler] ========================================
+---- map: [map00] ------------------------------
+map: map00, seed: 0
+asarandi.filler vs hcao.filler
+result: 119-40
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 2-157
+winner: asarandi.filler
+
+map: map00, seed: 1
+asarandi.filler vs hcao.filler
+result: 75-82
+winner: hcao.filler
+hcao.filler vs asarandi.filler
+result: 37-121
+winner: asarandi.filler
+
+map: map00, seed: 2
+asarandi.filler vs hcao.filler
+result: 108-67
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 34-140
+winner: asarandi.filler
+
+map: map00, seed: 3
+asarandi.filler vs hcao.filler
+result: 127-51
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 56-123
+winner: asarandi.filler
+
+map: map00, seed: 4
+asarandi.filler vs hcao.filler
+result: 103-65
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 42-125
+winner: asarandi.filler
+
+map: map00, seed: 5
+asarandi.filler vs hcao.filler
+result: 94-72
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 47-129
+winner: asarandi.filler
+
+---- map: [map01] ------------------------------
+map: map01, seed: 0
+asarandi.filler vs hcao.filler
+result: 260-77
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 40-288
+winner: asarandi.filler
+
+map: map01, seed: 1
+asarandi.filler vs hcao.filler
+result: 266-92
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 47-311
+winner: asarandi.filler
+
+map: map01, seed: 2
+asarandi.filler vs hcao.filler
+result: 236-104
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 60-290
+winner: asarandi.filler
+
+map: map01, seed: 3
+asarandi.filler vs hcao.filler
+result: 229-147
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 99-276
+winner: asarandi.filler
+
+map: map01, seed: 4
+asarandi.filler vs hcao.filler
+result: 242-108
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 2-348
+winner: asarandi.filler
+
+map: map01, seed: 5
+asarandi.filler vs hcao.filler
+result: 242-105
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 37-326
+winner: asarandi.filler
+
+---- map: [map02] ------------------------------
+map: map02, seed: 0
+asarandi.filler vs hcao.filler
+result: 1990-24
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 404-1605
+winner: asarandi.filler
+
+map: map02, seed: 1
+asarandi.filler vs hcao.filler
+result: 2000-8
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 467-1528
+winner: asarandi.filler
+
+map: map02, seed: 2
+asarandi.filler vs hcao.filler
+result: 1917-91
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 440-1579
+winner: asarandi.filler
+
+map: map02, seed: 3
+asarandi.filler vs hcao.filler
+result: 1916-121
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 534-1499
+winner: asarandi.filler
+
+map: map02, seed: 4
+asarandi.filler vs hcao.filler
+result: 1911-110
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 722-1290
+winner: asarandi.filler
+
+map: map02, seed: 5
+asarandi.filler vs hcao.filler
+result: 1893-109
+winner: asarandi.filler
+hcao.filler vs asarandi.filler
+result: 509-1493
+winner: asarandi.filler
+
+==== player: [superjeannot.filler] ========================================
+---- map: [map00] ------------------------------
+map: map00, seed: 0
+asarandi.filler vs superjeannot.filler
+result: 129-30
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 60-99
+winner: asarandi.filler
+
+map: map00, seed: 1
+asarandi.filler vs superjeannot.filler
+result: 126-32
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 44-117
+winner: asarandi.filler
+
+map: map00, seed: 2
+asarandi.filler vs superjeannot.filler
+result: 111-61
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 51-121
+winner: asarandi.filler
+
+map: map00, seed: 3
+asarandi.filler vs superjeannot.filler
+result: 139-35
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 128-46
+winner: superjeannot.filler
+
+map: map00, seed: 4
+asarandi.filler vs superjeannot.filler
+result: 128-38
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 46-121
+winner: asarandi.filler
+
+map: map00, seed: 5
+asarandi.filler vs superjeannot.filler
+result: 138-42
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 60-120
+winner: asarandi.filler
+
+---- map: [map01] ------------------------------
+map: map01, seed: 0
+asarandi.filler vs superjeannot.filler
+result: 287-50
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 108-208
+winner: asarandi.filler
+
+map: map01, seed: 1
+asarandi.filler vs superjeannot.filler
+result: 271-87
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 66-299
+winner: asarandi.filler
+
+map: map01, seed: 2
+asarandi.filler vs superjeannot.filler
+result: 287-53
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 90-250
+winner: asarandi.filler
+
+map: map01, seed: 3
+asarandi.filler vs superjeannot.filler
+result: 329-47
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 157-218
+winner: asarandi.filler
+
+map: map01, seed: 4
+asarandi.filler vs superjeannot.filler
+result: 279-74
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 2-351
+winner: asarandi.filler
+
+map: map01, seed: 5
+asarandi.filler vs superjeannot.filler
+result: 314-44
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 71-276
+winner: asarandi.filler
+
+---- map: [map02] ------------------------------
+map: map02, seed: 0
+asarandi.filler vs superjeannot.filler
+result: 1622-390
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 408-1604
+winner: asarandi.filler
+
+map: map02, seed: 1
+asarandi.filler vs superjeannot.filler
+result: 1676-319
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 644-1274
+winner: asarandi.filler
+
+map: map02, seed: 2
+asarandi.filler vs superjeannot.filler
+result: 1643-385
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 293-1726
+winner: asarandi.filler
+
+map: map02, seed: 3
+asarandi.filler vs superjeannot.filler
+result: 1735-323
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 111-1966
+winner: asarandi.filler
+
+map: map02, seed: 4
+asarandi.filler vs superjeannot.filler
+result: 1489-526
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 380-1649
+winner: asarandi.filler
+
+map: map02, seed: 5
+asarandi.filler vs superjeannot.filler
+result: 1802-215
+winner: asarandi.filler
+superjeannot.filler vs asarandi.filler
+result: 71-1940
+winner: asarandi.filler
+

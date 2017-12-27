@@ -16,11 +16,22 @@ show_result()
 	r2=`cat result1.tmp | grep ' fin: ' -m2 | tail -n1 | sed 's/.*\ fin:\ //'`
 
 	echo $p1 vs $p2
-	echo result: $r1-$r2
+	echo result: $r1-$r2;
+
+	if [ "$r1" -gt "$r2" ]; then
+		echo "winner: $p1";
+	elif [ "$r2" -gt "$r1" ]; then
+		echo "winner: $p2";
+	elif [ "$r1" -eq "$r2" ]; then
+		echo "winner: -- tie --";
+	fi
+	
 }
 
 for player in $players; do
+	echo "==== player: [`basename $player`] ========================================"
 	for map in $maps; do
+		echo "---- map: [`basename $map`] ------------------------------"
 		for seed in `seq $seed_start $seed_end`; do
 			rm -rf result1.tmp
 			$filler_vm -p1 $student -p2 $player -f $map -s $seed -q > result1.tmp

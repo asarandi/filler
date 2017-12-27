@@ -6,7 +6,7 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 18:38:26 by asarandi          #+#    #+#             */
-/*   Updated: 2017/12/24 17:25:58 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/12/27 03:09:44 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef	struct		s_gnl
 	struct s_gnl	*next;
 }					t_gnl;
 
+char				*ft_strdup(const char *s1);
 int					get_next_line(const int fd, char **line);
 int					write_to_file(char *filename, char *data, size_t size);
 int					main();
