@@ -6,7 +6,7 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 22:39:38 by asarandi          #+#    #+#             */
-/*   Updated: 2017/12/22 21:22:47 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/12/26 21:40:12 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,16 @@ int		g_piece_left_extra;
 int		g_last_position;
 int		g_mini_bottom;
 int		g_mini_right;
+
+
+typedef	struct	s_pos
+{
+	int	x;
+	int	y;
+	struct s_pos	*next;
+}	t_pos;
+
+t_pos	*g_pos = NULL;
 
 int	validate_input(char **input, char *pattern)
 {
@@ -146,11 +156,11 @@ int	get_plateau()
 	r = plateau_read();
 	if (r == -1)
 		return (0);
-//	else if (r == 0)
-//	{
-//		free(g_plateau);
-//		return (0);
-//	}
+	else if (r == 0)
+	{
+		free(g_plateau);
+		return (0);
+	}
 	return (1);
 }
 
@@ -166,11 +176,11 @@ int	get_piece()
 	r = piece_read();
 	if (r == -1)
 		return (0);
-//	else if (r == 0)
-//	{
-//		free(g_piece);
-//		return (0);
-//	}
+	else if (r == 0)
+	{
+		free(g_piece);
+		return (0);
+	}
 	return (1);
 }
 
@@ -397,18 +407,59 @@ int	plateau_slice(char *plateau)
 			g_slice[(i * k) + j] = plateau[(i * g_plateau_width) + j];
 			j++;
 		}
-		if (!plateau[(i * g_plateau_width) + j])
-			return (0);
+//		if (!plateau[(i * g_plateau_width) + (j - 1)])
+//			return (0);
 		i++;
 	}
 	return (1);
+}
+
+
+void	save_position(int x, int y)
+{
+	t_pos *position;
+	t_pos *new;
+
+	position = g_pos;
+	if (position != NULL)
+	{
+		while (position->next != NULL)
+			position = position->next;
+	}
+	new = ft_memalloc(sizeof(t_pos));
+	new->x = x;
+	new->y = y;
+	new->next = NULL;
+	if (position != NULL)
+		position->next = new;
+	else
+		g_pos = new;
+}
+
+void	destroy_positions()
+{
+	t_pos *position;
+	t_pos *ptr;
+
+	position = g_pos;
+	while (position->next != NULL)
+	{
+		ptr = position->next;
+		free(position);
+		position = ptr;
+	}
+	if (position != NULL)
+		free(position);
+	g_pos = NULL;
 }
 
 int	find_position()
 {
 	int	i;
 	int	j;
+	int	count;
 
+	count = 0;
 	i = 0;
 	while (i <= g_plateau_height - g_mini_height)
 	{
@@ -416,18 +467,20 @@ int	find_position()
 		while (j <= g_plateau_width - g_mini_width)
 		{
 			if (plateau_slice(&g_plateau[i * g_plateau_width + j ]) != 1)
-				return (0);
+				return (count);
 			if (valid_placement(g_slice, g_mini) == 1)
 			{
 				g_result_x = i - g_piece_top_extra;
 				g_result_y = j - g_piece_left_extra;
-				return (1);
+//				return (1);
+				save_position(g_result_x, g_result_y);
+				count += 1;
 			}
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (count);
 }
 
 void	write_result()
@@ -485,13 +538,53 @@ int	get_inputs()
 }
 
 
-	typedef	struct	s_pos
-	{
-		int	x;
-		int	y;
-		struct s_pos	*next;
-	}	t_pos;
 
+int	g_center_x;
+int g_center_y;
+int g_distance;
+
+int		distance_calc(t_pos *position)
+{
+	int	x;
+	int y;
+
+	x = position->x - g_center_x;
+	x *= x;
+	y = position->y - g_center_y;
+	y *= y;
+	return (x + y);
+
+}
+
+/*
+ * center x = g_plateau_height / 2
+ * center y = g_plateau_width  / 2
+ */
+
+
+void	choose_position()
+{
+	int	distance;
+
+	g_center_x = g_plateau_height / 2;
+	g_center_y = g_plateau_width / 2;
+	g_distance = 0;
+
+	t_pos	*position;
+	position = g_pos;
+	while (position != NULL)
+	{
+		distance = distance_calc(position);
+		if (distance > g_distance)
+		{
+			g_distance = distance;
+			g_result_x = position->x;
+			g_result_y = position->y;
+		}
+		position = position->next;
+	}
+
+}
 
 int	main()
 {
@@ -506,8 +599,14 @@ int	main()
 	while (get_inputs() == 1)
 	{
 
-		if (find_position() == 1)
+		if (find_position() != 0)
+		{
+			g_result_x = g_pos->x;
+			g_result_y = g_pos->y;
+			choose_position();
 			write_result();
+			destroy_positions();
+		}
 		else
 		{
 //			g_last_position = 0;
@@ -516,14 +615,14 @@ int	main()
 		}
 
 
-		write_to_file("alex.plateau", g_plateau, ft_strlen(g_plateau));	//
-		write_to_file("alex.plateau", "\n", 1);	//
+//		write_to_file("alex.plateau", g_plateau, ft_strlen(g_plateau));	//
+//		write_to_file("alex.plateau", "\n", 1);	//
 		free(g_plateau);
-		write_to_file("alex.piece", g_piece, ft_strlen(g_piece));	//
-		write_to_file("alex.piece", "\n", 1);	//
+//		write_to_file("alex.piece", g_piece, ft_strlen(g_piece));	//
+//		write_to_file("alex.piece", "\n", 1);	//
 		free(g_piece);
-		write_to_file("alex.g_mini", g_piece, ft_strlen(g_piece));	//
-		write_to_file("alex.g_mini", "\n", 1);	//
+//		write_to_file("alex.g_mini", g_piece, ft_strlen(g_piece));	//
+//		write_to_file("alex.g_mini", "\n", 1);	//
 		free(g_mini);
 		free(g_slice);
 	}

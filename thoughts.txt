@@ -3,3 +3,7 @@
 pieces need to be trimmed of all fluff for more eficient placing;
 implement bsq strategy,
 optimize code .. (remove ft_strlen's if possible)
+
+12-26-2017 .. pieces are trimmed,
+currently placing at distance furthest away from center of board,
+not as efficient as i thought it would be
