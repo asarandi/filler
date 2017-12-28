@@ -6,11 +6,21 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 19:15:55 by asarandi          #+#    #+#             */
-/*   Updated: 2017/12/11 03:00:54 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/12/27 16:59:43 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+
+char	*ft_strdup(const char *s1)
+{
+	char	*mem;
+
+	mem = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (mem == NULL)
+		return (NULL);
+	return (ft_strcpy(mem, s1));
+}
 
 void	*ft_memalloc(size_t size)
 {

@@ -1,7 +1,19 @@
 NAME	= asarandi.filler
 CC		= gcc
-FLAGS	= -Wall -Werror -Wextra -g
-SRC		= $(wildcard *.c)
+FLAGS	= -Wall -Werror -Wextra -Ofast
+SRC		=	enemy.c \
+			ft_putnbr.c \
+			get_next_line.c \
+			main.c \
+			mem_op.c \
+			mini.c \
+			piece_util.c \
+			position.c \
+			read_input.c \
+			string_op.c \
+			utils.c \
+			valid.c
+
 OBJ		= $(SRC:%.c=%.o)
 
 all:

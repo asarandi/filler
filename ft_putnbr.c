@@ -6,15 +6,39 @@
 /*   By: asarandi <asarandi@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/12 00:42:17 by asarandi          #+#    #+#             */
-/*   Updated: 2017/12/12 00:42:24 by asarandi         ###   ########.fr       */
+/*   Updated: 2017/12/27 16:58:47 by asarandi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-static int	ft_itoa_len2(long n)
+int		ft_atoi(char *str)
 {
-	int		i;
+	int	i;
+	int	result;
+
+	i = 0;
+	result = 0;
+	while ((str[i] >= '0') && (str[i] <= '9'))
+	{
+		result *= 10;
+		result += str[i] - '0';
+		i++;
+	}
+	return (result);
+}
+
+int		ft_isdigit(int c)
+{
+	if ((c >= '0') && (c <= '9'))
+		return (1);
+	else
+		return (0);
+}
+
+int		ft_itoa_len2(long n)
+{
+	int	i;
 
 	if (n == 0)
 		return (1);
@@ -27,10 +51,10 @@ static int	ft_itoa_len2(long n)
 	return (i);
 }
 
-static char	*ft_itoa2(long n, char *m)
+char	*ft_itoa2(long n, char *m)
 {
-	int		neg;
-	int		i;
+	int	neg;
+	int	i;
 
 	neg = 0;
 	if (n < 0)
@@ -52,7 +76,7 @@ static char	*ft_itoa2(long n, char *m)
 	return (m);
 }
 
-void		ft_putnbr(int n)
+void	ft_putnbr(int n)
 {
 	char	m[200];
 	int		i;
