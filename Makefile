@@ -1,6 +1,6 @@
 NAME	= asarandi.filler
 CC		= gcc
-FLAGS	= -Wall -Werror -Wextra -Ofast
+FLAGS	= -O2 -Wall -Werror -Wextra -Wno-unused-result
 SRC		=	enemy.c \
 			ft_putnbr.c \
 			get_next_line.c \

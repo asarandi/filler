@@ -120,6 +120,7 @@ int		get_next_line(const int fd, char **line)
 	*line = NULL;
 	while ((gnl->fd != fd) && (gnl->next))
 		gnl = gnl->next;
+	memory = NULL;
 	if ((gnl->fd == fd) && (gnl->mem))
 		memory = gnl->mem;
 	else if ((tmp = gnl_read(fd, &gnl, &memory)) != 1)
